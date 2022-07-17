@@ -10,12 +10,23 @@
 <script>
 import userLogin from "../composable/userLogin"
 import { ref } from '@vue/reactivity'
+import getUser from '../composable/getUser'
+import { onMounted } from '@vue/runtime-core'
 
 export default {
     setup(props, context) {
         const { error, login } = userLogin()
         const email = ref("")
         const password = ref("")
+
+        const { user } = getUser()
+
+        onMounted(() => {
+            if(user.value) {
+                context.emit('login')
+            }
+        })
+
 
         const handleSubmit = async () => {
             await login(email.value, password.value)
