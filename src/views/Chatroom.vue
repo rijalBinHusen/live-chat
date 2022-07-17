@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import { watch } from '@vue/runtime-core'
 import { useRouter } from 'vue-router'
 import Navbar from "../components/Navbar.vue"
 import getUser from '../composable/getUser'
