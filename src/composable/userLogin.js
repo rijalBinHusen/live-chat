@@ -13,7 +13,6 @@ const login = async (email, password) => {
     }
     error.value = null;
     // await res.user.updateProfile({ displayName: displayName });
-    console.log(res);
     return res;
   } catch (err) {
     error.value = err.message;
