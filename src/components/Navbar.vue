@@ -1,27 +1,34 @@
 <template>
   <nav>
       <div>
-        <p>Hey there....</p>
-        <p class="email">Currently logged in as...</p>
+        <p>Hey there {{ user?.displayName }}</p>
+        <p class="email">Currently logged in as {{ user?.email }}</p>
       </div>
       <button @click="handleClick">Logout</button>
   </nav>
 </template>
 
 <script>
+import { useRouter } from 'vue-router'
 import userLogout from "../composable/userLogout"
+import getUser from "../composable/getUser"
+
 export default {
   setup() {
     const { logout, error } = userLogout()
+    const { user } = getUser()
+    
+    const router = useRouter()
 
     const handleClick = async () => {
       await logout()
       if(!error.value) {
-        console.log("user logged out")
+        // console.log("user logged out")
+        router.push("/")
       }
     }
 
-    return { error, handleClick}
+    return { error, handleClick, user }
   }
 }
 </script>
