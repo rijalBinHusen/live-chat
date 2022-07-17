@@ -12,7 +12,7 @@ import userLogin from "../composable/userLogin"
 import { ref } from '@vue/reactivity'
 
 export default {
-    setup() {
+    setup(props, context) {
         const { error, login } = userLogin()
         const email = ref("")
         const password = ref("")
@@ -20,7 +20,7 @@ export default {
         const handleSubmit = async () => {
             await login(email.value, password.value)
             if(!error.value) {
-                // console.log("User logged in")
+                context.emit('login')
             }
         }
 

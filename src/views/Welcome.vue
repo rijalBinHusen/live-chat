@@ -3,12 +3,12 @@
       <p>Welcome</p>
     <div v-if="showLogin" >
         <h2>Login</h2>
-        <LoginForm />
+        <LoginForm @login="enterChat" />
         <p>No account yet? <span @click="showLogin = false">Signup</span></p>
     </div>
     <div v-else>
         <h2>Sign up</h2>
-        <SignupForm/>
+        <SignupForm @signup="enterChat"/>
         <p>Have an account? <span @click="showLogin = true">Login</span></p>
     </div>
 
@@ -16,14 +16,19 @@
 </template>
 
 <script>
+/* eslint-disable */
 import SignupForm from "../components/SingupForm.vue"
 import LoginForm from "../components/LoginForm.vue"
+import { useRouter } from "vue-router"
 import { ref } from '@vue/reactivity'
 export default {
     setup() {
-        const showLogin = ref(true)
-        
-        return { showLogin }
+        const showLogin = ref(true);
+        const router = useRouter();
+        const enterChat = () => {
+          router.push('/chatroom')
+        }
+        return { showLogin, enterChat }
     },
     components: { SignupForm, LoginForm }
 }
