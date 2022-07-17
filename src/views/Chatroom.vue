@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <Navbar />
+    <NewChatForm />
   </div>
 </template>
 
@@ -9,6 +10,8 @@ import { watch } from '@vue/runtime-core'
 import { useRouter } from 'vue-router'
 import Navbar from "../components/Navbar.vue"
 import getUser from '../composable/getUser'
+import NewChatForm from "../components/NewChatForm.vue"
+
 /* eslint-disable */
 export default {
   setup() {
@@ -21,7 +24,7 @@ export default {
       }
     })
   },
-  components: { Navbar }
+  components: { Navbar, NewChatForm }
 }
 </script>
 
