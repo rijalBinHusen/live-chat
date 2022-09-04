@@ -10,6 +10,7 @@ const requiredAuth = (to, from, next) => {
   // console.log("Current user in auth guard", user);
   if (!user) {
     next({ name: "welcome" });
+    return;
   }
   next();
 };
