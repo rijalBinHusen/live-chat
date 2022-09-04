@@ -1,4 +1,15 @@
-# complete
+# Live chat
+
+## The result project would look like so :
+
+### Login form
+![Login form live chat](public/01live-chat-login.png)
+
+### Signup form
+![Signup form live chat](public/02live-chat-signup.png)
+
+### Chat window
+![Live chat window](public/02live-chatwindow.png)
 
 ## Project setup
 ```
