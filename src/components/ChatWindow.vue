@@ -1,27 +1,26 @@
 <template>
-    <div class="chatwindow">
-        <div v-if="error">
-            {{ error }}
-        </div>
-        <div v-if="documents" class="messages" ref="messages">
-            <div v-for="doc in formattedDocuments" :key="doc.id" class="single">
-                <span class="created-at">
-                    {{ doc.createdAt }}
-                </span>
-                <span class="name">{{ doc.name }}</span>
-                <span class="message"> {{ doc.message }} </span>
-            </div>
-        </div>
+  <div class="chatwindow">
+    <div v-if="error">
+      {{ error }}
     </div>
+    <div v-if="documents" class="messages" ref="messages">
+      <div v-for="doc in formattedDocuments" :key="doc.id" class="single">
+        <span class="created-at">
+          {{ doc.createdAt }}
+        </span>
+        <span class="name">{{ doc.name }}</span>
+        <span class="message"> {{ doc.message }} </span>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 /* eslint-disable */
 /* eslint-disable */
-import { computed, ref } from '@vue/reactivity'
+import { computed, ref, onUpdated } from 'vue'
 import getCollection from "../composable/getCollection"
 import { formatDistanceToNow } from "date-fns"
-import { onUpdated } from '@vue/runtime-core'
 
 export default {
     setup () {

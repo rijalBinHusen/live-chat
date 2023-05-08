@@ -1,17 +1,16 @@
 <template>
   <div class="welcome container">
-      <p>Welcome</p>
-    <div v-if="showLogin" >
-        <h2>Login</h2>
-        <LoginForm @login="enterChat" />
-        <p>No account yet? <span @click="showLogin = false">Signup</span></p>
+    <p>Welcome</p>
+    <div v-if="showLogin">
+      <h2>Login</h2>
+      <LoginForm @login="enterChat" />
+      <p>No account yet? <span @click="showLogin = false">Signup</span></p>
     </div>
     <div v-else>
-        <h2>Sign up</h2>
-        <SignupForm @signup="enterChat"/>
-        <p>Have an account? <span @click="showLogin = true">Login</span></p>
+      <h2>Sign up</h2>
+      <SignupForm @signup="enterChat" />
+      <p>Have an account? <span @click="showLogin = true">Login</span></p>
     </div>
-
   </div>
 </template>
 
@@ -20,7 +19,7 @@
 import SignupForm from "../components/SingupForm.vue"
 import LoginForm from "../components/LoginForm.vue"
 import { useRouter } from "vue-router"
-import { ref } from '@vue/reactivity'
+import { ref } from 'vue'
 export default {
     setup() {
         const showLogin = ref(true);
