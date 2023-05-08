@@ -12,6 +12,27 @@
       <p>Have an account? <span @click="showLogin = true">Login</span></p>
     </div>
   </div>
+    <div style="margin-top:50px;">
+        <div>
+            <h3>User for test:</h3>
+            <ul>
+                <li>Email: <b>test2@test.com</b>, password: <b>123456</b></li>
+                <li>Email: <b>test@test.com</b>, password: <b>123456</b></li>
+            </ul>
+        </div>
+        <div style="margin-top:50px;">
+            <h3>What kind of application is this?:</h3>
+            <ul>
+                <li>Apllication to chat to other users in app</li>
+                <li>New user can signup</li>
+                <li>All users can send and read messages in realtime</li>
+            </ul>
+        </div>
+        <div>
+          <h3>How to test application:</h3>
+          Test this application by open 2 different browser and login with different user, the chatboard will be changed in realtime while the user send the messages.
+        </div>
+    </div>
 </template>
 
 <script>
@@ -48,7 +69,7 @@ export default {
     margin: 20px 0 10px;
   }
   .welcome input {
-    width: 100%;
+    width: 12rem;
     padding: 10px;
     border-radius: 20px;
     border: 1px solid #eee;
